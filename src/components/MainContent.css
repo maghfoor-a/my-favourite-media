@@ -28,7 +28,7 @@
   border-radius: 30px;
   font-size: x-large;
   font-weight: bolder;
-  font-family: Courier New, Courier, 'monospace';
+  font-family: Courier New, Courier, "monospace";
 }
 
 .SearchButton {
@@ -37,8 +37,7 @@
   margin: 10px;
   font-size: 150%;
   font-weight: bolder;
-  font-family: Courier New, Courier, 'monospace';
+  font-family: Courier New, Courier, "monospace";
   border: 20px;
   cursor: pointer;
-
 }

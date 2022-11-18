@@ -64,14 +64,14 @@ export default function MainContent(): JSX.Element {
       <h1 className="Title">Search below!</h1>
       <hr />
       <div className="searchAndButton">
-      <input
-        className="searchBar"
-        value={searchBarText}
-        onChange={(e) => setSearchBarText(e.target.value)}
-      ></input>
-      <button className="SearchButton" onClick={handleSearchButton}>
-        SEARCH
-      </button>
+        <input
+          className="searchBar"
+          value={searchBarText}
+          onChange={(e) => setSearchBarText(e.target.value)}
+        ></input>
+        <button className="SearchButton" onClick={handleSearchButton}>
+          SEARCH
+        </button>
       </div>
       <hr />
       <div className="AllTheAlbums">
