@@ -67,7 +67,10 @@ export default function MainContent(): JSX.Element {
         <input
           className="searchBar"
           value={searchBarText}
-          onChange={(e) => setSearchBarText(e.target.value)}
+          onChange={(e) => {
+            setSearchBarText(e.target.value);
+            searchBarText.length > 1 && handleSearchButton();
+          }}
         ></input>
         <button className="SearchButton" onClick={handleSearchButton}>
           SEARCH
