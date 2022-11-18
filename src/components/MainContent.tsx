@@ -73,7 +73,7 @@ export default function MainContent(): JSX.Element {
             searchBarText.length > 1 && handleSearchButton();
           }}
         ></input>
-        <button className="SearchButton" onClick={handleSearchButton} >
+        <button className="SearchButton" onClick={handleSearchButton}>
           SEARCH
         </button>
       </div>
