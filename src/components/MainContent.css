@@ -1,6 +1,6 @@
 .AllTheAlbums {
   display: flex;
-  max-width: 80%;
+  max-width: 100%;
   flex-flow: row wrap;
   justify-content: center;
 }
