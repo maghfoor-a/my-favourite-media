@@ -12,3 +12,33 @@
   margin: 6px;
   text-align: center;
 }
+
+.searchAndButton {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.searchBar {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 10px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  font-size: x-large;
+  font-weight: bolder;
+  font-family: Courier New, Courier, 'monospace';
+}
+
+.SearchButton {
+  border-radius: 30px;
+  width: 150px;
+  margin: 10px;
+  font-size: 150%;
+  font-weight: bolder;
+  font-family: Courier New, Courier, 'monospace';
+  border: 20px;
+  cursor: pointer;
+
+}
