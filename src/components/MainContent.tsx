@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { AlbumDataTypes } from "../utils/AlbumDataType"
-import "./MainContent.css"
+import { AlbumDataTypes } from "../utils/AlbumDataType";
+import "./MainContent.css";
 
 //got both of these keys by signing up to spotify dev tools
 const Client_Id = "514b68cdc0b64083a2c23276782ba390";
