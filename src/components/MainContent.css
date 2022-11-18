@@ -1,0 +1,13 @@
+.AllTheAlbums {
+    display: flex;
+    max-width: 80%;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.EachAlbum {
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin: 6px;
+}

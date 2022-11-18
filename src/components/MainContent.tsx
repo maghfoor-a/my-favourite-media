@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { AlbumDataTypes } from "../utils/AlbumDataType";
+import { AlbumDataTypes } from "../utils/AlbumDataType"
+import "./MainContent.css"
 
 //got both of these keys by signing up to spotify dev tools
 const Client_Id = "514b68cdc0b64083a2c23276782ba390";
@@ -59,8 +60,8 @@ export default function MainContent(): JSX.Element {
   };
 
   return (
-    <div>
-      <h1>Search below!</h1>
+    <div className="body">
+      <h1 className="Title">Search below!</h1>
       <hr />
       <input
         className="searchBar"
@@ -77,7 +78,7 @@ export default function MainContent(): JSX.Element {
           .map((album) => {
             return (
               <div className="EachAlbum" key={album.id}>
-                <img src={album.images[0].url} alt="Album Cover" />
+                <img src={album.images[1].url} alt="Album Cover" />
                 <p>{album.name}</p>
               </div>
             );
