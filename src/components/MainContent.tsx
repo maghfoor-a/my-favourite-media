@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { AlbumDataTypes } from "../utils/AlbumDataType";
+import { ArtistDataType } from "../utils/ArtistDataType";
+// import { AlbumDataTypes } from "../utils/AlbumDataType";
 import "./MainContent.css";
 
 //got both of these keys by signing up to spotify dev tools
@@ -9,7 +10,7 @@ const Client_Secret = "83866f02e62f4cee8d8951e7fe0c66a5";
 export default function MainContent(): JSX.Element {
   const [searchBarText, setSearchBarText] = useState<string>("");
   const [accessToken, setAccessToken] = useState<string>("");
-  const [albumsList, setAlbumbsList] = useState<AlbumDataTypes[] | []>([]);
+  const [artistsList, setArtistsList] = useState<ArtistDataType[] | []>([]);
 
   useEffect(() => {
     //this is used to get the access token, which you can then use to search through spotify's API
@@ -40,24 +41,27 @@ export default function MainContent(): JSX.Element {
         Authorization: "Bearer " + accessToken,
       },
     };
-    const ArtistID = await fetch(
+    const ArtistsList = await fetch(
       "https://api.spotify.com/v1/search?q=" + searchBarText + "&type=artist",
       searchParamsforArtistsAndAlbums
     )
       .then((result) => result.json())
       .then((jsonBodyResult) => {
-        return jsonBodyResult.artists.items[0].id;
+        setArtistsList(jsonBodyResult.artists.items);
       }); /* from this response, spotify gives us a list of artists names, we select the top one as artist ID */
 
     //now we are gonna use the ArtistID to get a list of all of their albums
 
-    await fetch(
-      `https://api.spotify.com/v1/artists/${ArtistID}/albums?include_groups=album&market=GB&limit=50`,
-      searchParamsforArtistsAndAlbums
-    )
-      .then((result) => result.json())
-      .then((jsonResult) => setAlbumbsList(jsonResult.items));
   };
+  console.log(artistsList);
+  
+
+    // await fetch(
+    //   `https://api.spotify.com/v1/artists/${ArtistID}/albums?include_groups=album&market=GB&limit=50`,
+    //   searchParamsforArtistsAndAlbums
+    // )
+    //   .then((result) => result.json())
+    //   .then((jsonResult) => setAlbumbsList(jsonResult.items));
 
   return (
     <div className="body">
@@ -79,7 +83,7 @@ export default function MainContent(): JSX.Element {
       </div>
       <hr />
       <div className="AllTheAlbums">
-        {albumsList
+        {artistsList
           .filter((album) => album.name)
           .map((album) => {
             return (
