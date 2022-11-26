@@ -51,22 +51,18 @@ export default function MainContent(): JSX.Element {
       }); /* from this response, spotify gives us a list of artists names, we select the top one as artist ID */
 
     //now we are gonna use the ArtistID to get a list of all of their albums
-
   };
   console.log(artistsList);
-  
 
-    // await fetch(
-    //   `https://api.spotify.com/v1/artists/${ArtistID}/albums?include_groups=album&market=GB&limit=50`,
-    //   searchParamsforArtistsAndAlbums
-    // )
-    //   .then((result) => result.json())
-    //   .then((jsonResult) => setAlbumbsList(jsonResult.items));
+  // await fetch(
+  //   `https://api.spotify.com/v1/artists/${ArtistID}/albums?include_groups=album&market=GB&limit=50`,
+  //   searchParamsforArtistsAndAlbums
+  // )
+  //   .then((result) => result.json())
+  //   .then((jsonResult) => setAlbumbsList(jsonResult.items));
 
   return (
     <div className="body">
-      <h1 className="Title">Search below!</h1>
-      <hr />
       <div className="searchAndButton">
         <input
           className="searchBar"
