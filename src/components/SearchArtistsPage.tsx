@@ -8,14 +8,13 @@ interface AlbumsViewPageProps {
   passSetPage: React.Dispatch<React.SetStateAction<string>>;
   passAccessToken: string;
   getArtistID: React.Dispatch<React.SetStateAction<string>>;
+  passSetRunAlbumsBtn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function SearchArtistsPage(
   props: AlbumsViewPageProps
 ): JSX.Element {
   const [artistsList, setArtistsList] = useState<ArtistDataType[] | []>([]);
-
-  console.log(artistsList);
 
   // await fetch(
   //   `https://api.spotify.com/v1/artists/${ArtistID}/albums?include_groups=album&market=GB&limit=50`,
@@ -27,6 +26,7 @@ export default function SearchArtistsPage(
   const handleArtistClick = (artistIDValue: string) => {
     props.passSetPage("albums");
     props.getArtistID(artistIDValue);
+    props.passSetRunAlbumsBtn(true);
   };
 
   return (
