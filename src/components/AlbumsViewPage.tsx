@@ -7,6 +7,10 @@ interface AlbumsViewProps {
   passAccessToken: string;
   passArtistID: string;
   passRunAlbumsBtn: boolean;
+  passFavouriteAlbums: [] | AlbumDataTypes[];
+  passSetFavouriteAlbums: React.Dispatch<
+    React.SetStateAction<[] | AlbumDataTypes[]>
+  >;
 }
 
 export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
@@ -43,7 +47,16 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
           .filter((album) => album.name)
           .map((album) => {
             return (
-              <div className="EachArtist" key={album.id}>
+              <div
+                className="EachArtist"
+                key={album.id}
+                onClick={() => [
+                  props.passSetFavouriteAlbums([
+                    ...props.passFavouriteAlbums,
+                    album,
+                  ]),
+                ]}
+              >
                 <img src={album.images[1]?.url} alt="album Cover" />
                 <p>{album.name}</p>
               </div>

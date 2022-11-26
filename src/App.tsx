@@ -3,6 +3,7 @@ import AlbumsViewPage from "./components/AlbumsViewPage";
 import AppHeader from "./components/AppHeader";
 import SearchArtistsPage from "./components/SearchArtistsPage";
 import FavouritesPage from "./components/FavouritesPage";
+import { AlbumDataTypes } from "./utils/AlbumDataType";
 
 //got both of these keys by signing up to spotify dev tools
 const Client_Id = "514b68cdc0b64083a2c23276782ba390";
@@ -13,6 +14,9 @@ function App(): JSX.Element {
   const [accessToken, setAccessToken] = useState<string>("");
   const [artistID, setArtistID] = useState<string>("");
   const [runAlbumsBtn, setRunAlbumsBtn] = useState<boolean>(false);
+  const [favouriteAlbums, setFavouriteAlbums] = useState<[] | AlbumDataTypes[]>(
+    []
+  );
 
   useEffect(() => {
     //this is used to get the access token, which you can then use to search through spotify's API
@@ -50,9 +54,13 @@ function App(): JSX.Element {
           passAccessToken={accessToken}
           passArtistID={artistID}
           passRunAlbumsBtn={runAlbumsBtn}
+          passSetFavouriteAlbums={setFavouriteAlbums}
+          passFavouriteAlbums={favouriteAlbums}
         />
       )}
-      {page === "favourite" && <FavouritesPage />}
+      {page === "favourite" && (
+        <FavouritesPage passFavouriteAlbums={favouriteAlbums} />
+      )}
     </>
   );
 }
