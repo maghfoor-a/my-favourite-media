@@ -3,6 +3,7 @@
   max-width: 100%;
   flex-flow: row wrap;
   justify-content: center;
+  cursor: pointer;
 }
 
 .EachArtist {
