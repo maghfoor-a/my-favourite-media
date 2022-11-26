@@ -30,7 +30,7 @@ export default function SearchArtistsPage(): JSX.Element {
       .then((jsonDataForAT) => setAccessToken(jsonDataForAT.access_token)); // AT = Access Token
   }, []);
 
-  console.log(artistsList);
+  console.log(artistsList.length);
 
   // await fetch(
   //   `https://api.spotify.com/v1/artists/${ArtistID}/albums?include_groups=album&market=GB&limit=50`,
