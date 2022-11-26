@@ -1,12 +1,12 @@
 import AppHeader from "./components/AppHeader";
-import MainContent from "./components/MainContent";
+import SearchArtistsPage from "./components/SearchArtistsPage";
 
 function App(): JSX.Element {
   return (
     <>
       <AppHeader />
       <hr />
-      <MainContent />
+      <SearchArtistsPage />
     </>
   );
 }
