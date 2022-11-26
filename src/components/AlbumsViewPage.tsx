@@ -11,7 +11,6 @@ interface AlbumsViewProps {
 export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
 
     const [albums, setAlbums] = useState<[]|AlbumDataTypes[]>([]);
-    console.log(props.passRunAlbumsBtn)
 
     const GettingAlbums =  async () => {
     const searchParamsforArtistsAndAlbums = {
@@ -33,9 +32,9 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
   return (
     <>
       <h1>ALBUMS</h1>
-      <button onClick={() => props.passSetPage("home")}>HOME</button>
-      {props.passArtistID}
-      <button onClick={GettingAlbums}>get albums</button>
+      <button className="Button" onClick={() => props.passSetPage("home")}>HOME</button>
+      <hr/>
+      <button className="Button" onClick={() => GettingAlbums()}>GET ALBUMS</button>
       <div className="AllTheArtists">
         {albums
           .filter((album) => album.name)
