@@ -11,7 +11,7 @@ function App(): JSX.Element {
   const [page, setPage] = useState<string>("home");
   const [accessToken, setAccessToken] = useState<string>("");
   const [artistID, setArtistID] = useState<string>("");
-  const [runAlbumsBtn, setRunAlbumsBtn] = useState<boolean>(false)
+  const [runAlbumsBtn, setRunAlbumsBtn] = useState<boolean>(false);
 
   useEffect(() => {
     //this is used to get the access token, which you can then use to search through spotify's API
