@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AlbumDataTypes } from "../utils/AlbumDataType";
+import filterDuplicateAlbums from "../utils/helper-functions/filterDuplicateAlbums";
 
 interface AlbumsViewProps {
   passSetPage: React.Dispatch<React.SetStateAction<string>>;
@@ -28,6 +29,8 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
       .then((jsonResult) => setAlbums(jsonResult.items));
   };
 
+  const uniqueAlbums = filterDuplicateAlbums(albums);
+
   return (
     <>
       <h1>ALBUMS</h1>
@@ -36,7 +39,7 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
         GET ALBUMS
       </button>
       <div className="AllTheArtists">
-        {albums
+        {uniqueAlbums
           .filter((album) => album.name)
           .map((album) => {
             return (
