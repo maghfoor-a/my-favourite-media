@@ -30,7 +30,6 @@ export default function SearchArtistsPage(): JSX.Element {
       .then((jsonDataForAT) => setAccessToken(jsonDataForAT.access_token)); // AT = Access Token
   }, []);
 
-  
   console.log(artistsList);
 
   // await fetch(
@@ -42,7 +41,10 @@ export default function SearchArtistsPage(): JSX.Element {
 
   return (
     <div className="body">
-      <SearchBar passAccessToken={accessToken} passSetArtistsLists={setArtistsList} />
+      <SearchBar
+        passAccessToken={accessToken}
+        passSetArtistsLists={setArtistsList}
+      />
       <hr />
       <div className="AllTheAlbums">
         {artistsList
