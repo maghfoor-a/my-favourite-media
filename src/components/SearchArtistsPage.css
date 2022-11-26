@@ -1,11 +1,11 @@
-.AllTheAlbums {
+.AllTheArtists {
   display: flex;
   max-width: 100%;
   flex-flow: row wrap;
   justify-content: center;
 }
 
-.EachAlbum {
+.EachArtist {
   padding: 15px;
   border: 1px solid black;
   border-radius: 30px;
@@ -13,7 +13,7 @@
   text-align: center;
 }
 
-.searchAndButton {
+.Button {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -31,12 +31,11 @@
   font-family: Courier New, Courier, "monospace";
 }
 
-.SearchButton {
+.Button {
   border-radius: 30px;
   width: 150px;
   margin: 10px;
   font-size: 150%;
-  font-weight: bolder;
   font-family: Courier New, Courier, "monospace";
   border: 20px;
   cursor: pointer;
