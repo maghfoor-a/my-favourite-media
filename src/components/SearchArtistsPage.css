@@ -33,11 +33,18 @@
 }
 
 .Button {
-  border-radius: 30px;
-  width: 150px;
-  margin: 10px;
-  font-size: 150%;
+  border-radius: 0.5rem;
+  width: 10rem;
+  margin: 1rem;
+  font-size: 1rem;
   font-family: Courier New, Courier, "monospace";
-  border: 20px;
+  border: 1rem;
   cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+}
+
+.AppHeaderBody {
+  display: flex;
+  flex-wrap: wrap;
 }
