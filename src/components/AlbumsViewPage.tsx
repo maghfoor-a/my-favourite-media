@@ -31,9 +31,6 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
   return (
     <>
       <h1>ALBUMS</h1>
-      <button className="Button" onClick={() => props.passSetPage("home")}>
-        HOME
-      </button>
       <hr />
       <button className="Button" onClick={() => GettingAlbums()}>
         GET ALBUMS

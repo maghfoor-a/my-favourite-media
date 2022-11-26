@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import AlbumsViewPage from "./components/AlbumsViewPage";
 import AppHeader from "./components/AppHeader";
 import SearchArtistsPage from "./components/SearchArtistsPage";
+import FavouritesPage from "./components/FavouritesPage";
 
 //got both of these keys by signing up to spotify dev tools
 const Client_Id = "514b68cdc0b64083a2c23276782ba390";
@@ -33,7 +34,7 @@ function App(): JSX.Element {
 
   return (
     <>
-      <AppHeader />
+      <AppHeader passSetPage={setPage} />
       <hr />
       {page === "home" && (
         <SearchArtistsPage
@@ -51,6 +52,7 @@ function App(): JSX.Element {
           passRunAlbumsBtn={runAlbumsBtn}
         />
       )}
+      {page === "favourite" && <FavouritesPage />}
     </>
   );
 }
