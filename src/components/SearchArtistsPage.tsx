@@ -4,11 +4,17 @@ import SearchBar from "./SearchBar";
 // import { AlbumDataTypes } from "../utils/AlbumDataType";
 import "./SearchArtistsPage.css";
 
+interface AlbumsViewPageProps {
+  passSetPage: React.Dispatch<React.SetStateAction<string>>;
+}
+
 //got both of these keys by signing up to spotify dev tools
 const Client_Id = "514b68cdc0b64083a2c23276782ba390";
 const Client_Secret = "83866f02e62f4cee8d8951e7fe0c66a5";
 
-export default function SearchArtistsPage(): JSX.Element {
+export default function SearchArtistsPage(
+  props: AlbumsViewPageProps
+): JSX.Element {
   const [accessToken, setAccessToken] = useState<string>("");
   const [artistsList, setArtistsList] = useState<ArtistDataType[] | []>([]);
 
@@ -30,7 +36,7 @@ export default function SearchArtistsPage(): JSX.Element {
       .then((jsonDataForAT) => setAccessToken(jsonDataForAT.access_token)); // AT = Access Token
   }, []);
 
-  console.log(artistsList.length);
+  console.log(artistsList);
 
   // await fetch(
   //   `https://api.spotify.com/v1/artists/${ArtistID}/albums?include_groups=album&market=GB&limit=50`,
@@ -46,14 +52,18 @@ export default function SearchArtistsPage(): JSX.Element {
         passSetArtistsLists={setArtistsList}
       />
       <hr />
-      <div className="AllTheAlbums">
+      <div className="AllTheArtists">
         {artistsList
-          .filter((album) => album.name)
-          .map((album) => {
+          .filter((artist) => artist.name)
+          .map((artist) => {
             return (
-              <div className="EachAlbum" key={album.id}>
-                <img src={album.images[1]?.url} alt="Album Cover" />
-                <p>{album.name}</p>
+              <div
+                className="EachArtist"
+                key={artist.id}
+                onClick={() => props.passSetPage("albums")}
+              >
+                <img src={artist.images[1]?.url} alt="artist Cover" />
+                <p>{artist.name}</p>
               </div>
             );
           })}
