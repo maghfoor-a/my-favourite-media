@@ -42,6 +42,10 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
       <button className="Button" onClick={() => GettingAlbums()}>
         GET ALBUMS
       </button>
+      <p>click to see the albums!👆</p>
+      {uniqueAlbums.length > 0 && (
+        <p>click on an album to add it to your favourites!</p>
+      )}
       <div className="AllTheArtists">
         {uniqueAlbums
           .filter((album) => album.name)
