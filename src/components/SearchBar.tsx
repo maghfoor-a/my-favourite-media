@@ -38,7 +38,7 @@ export default function SearchBar(props: SearchBarProps): JSX.Element {
       <div className="searchAndButton">
         <input
           className="searchBar"
-          placeholder="Type your favourite artist's name"
+          placeholder="Type your favourite musician's name"
           value={searchBarText}
           onChange={(e) => {
             setSearchBarText(e.target.value);
