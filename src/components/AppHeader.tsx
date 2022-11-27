@@ -5,7 +5,7 @@ interface AppHeaderProps {
 export default function AppHeader(props: AppHeaderProps): JSX.Element {
   return (
     <div className="AppHeaderBody">
-      <h1>ALBUM FINDER BY ARTIST</h1>
+      <h1>MY FAVOURITE MEDIA</h1>
       <button className="Button" onClick={() => props.passSetPage("favourite")}>
         FAVOURITES
       </button>
