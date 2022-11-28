@@ -13,7 +13,7 @@ function App(): JSX.Element {
   const [page, setPage] = useState<string>("home");
   const [accessToken, setAccessToken] = useState<string>("");
   const [artistID, setArtistID] = useState<string>("");
-  const [runAlbumsBtn, setRunAlbumsBtn] = useState<boolean>(false);
+  const [searchAlbums, setSearchAlbums] = useState<boolean>(false);
   const [favouriteAlbums, setFavouriteAlbums] = useState<[] | AlbumDataTypes[]>(
     []
   );
@@ -45,7 +45,7 @@ function App(): JSX.Element {
           passSetPage={setPage}
           passAccessToken={accessToken}
           getArtistID={setArtistID}
-          passSetRunAlbumsBtn={setRunAlbumsBtn}
+          passSetSearchAlbums={setSearchAlbums}
         />
       )}
       {page === "albums" && (
@@ -53,7 +53,7 @@ function App(): JSX.Element {
           passSetPage={setPage}
           passAccessToken={accessToken}
           passArtistID={artistID}
-          passRunAlbumsBtn={runAlbumsBtn}
+          passSearchAlbums={searchAlbums}
           passSetFavouriteAlbums={setFavouriteAlbums}
           passFavouriteAlbums={favouriteAlbums}
         />

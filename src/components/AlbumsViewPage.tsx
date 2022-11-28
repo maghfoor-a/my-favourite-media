@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AlbumDataTypes } from "../utils/AlbumDataType";
 import filterDuplicateAlbums from "../utils/helper-functions/filterDuplicateAlbums";
 
@@ -6,7 +6,7 @@ interface AlbumsViewProps {
   passSetPage: React.Dispatch<React.SetStateAction<string>>;
   passAccessToken: string;
   passArtistID: string;
-  passRunAlbumsBtn: boolean;
+  passSearchAlbums: boolean;
   passFavouriteAlbums: [] | AlbumDataTypes[];
   passSetFavouriteAlbums: React.Dispatch<
     React.SetStateAction<[] | AlbumDataTypes[]>
@@ -16,7 +16,7 @@ interface AlbumsViewProps {
 export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
   const [albums, setAlbums] = useState<[] | AlbumDataTypes[]>([]);
 
-  const GettingAlbums = async () => {
+  useEffect(() => {
     const searchParamsforArtistsAndAlbums = {
       method: "GET",
       headers: {
@@ -25,13 +25,13 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
       },
     };
 
-    await fetch(
+    fetch(
       `https://api.spotify.com/v1/artists/${props.passArtistID}/albums?include_groups=album&market=GB&limit=50`,
       searchParamsforArtistsAndAlbums
     )
       .then((result) => result.json())
       .then((jsonResult) => setAlbums(jsonResult.items));
-  };
+  }, [props.passSearchAlbums, props.passAccessToken, props.passArtistID]);
 
   const uniqueAlbums = filterDuplicateAlbums(albums);
 
@@ -39,13 +39,6 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
     <>
       <h1>ALBUMS</h1>
       <hr />
-      <button className="Button" onClick={() => GettingAlbums()}>
-        GET ALBUMS
-      </button>
-      <p>click to see the albums!👆</p>
-      {uniqueAlbums.length > 0 && (
-        <p>click on an album to add it to your favourites!</p>
-      )}
       <div className="AllTheArtists">
         {uniqueAlbums
           .filter((album) => album.name)
