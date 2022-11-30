@@ -39,6 +39,7 @@ export default function AlbumsViewPage(props: AlbumsViewProps): JSX.Element {
     <>
       <h1>ALBUMS</h1>
       <hr />
+      <p>Click on an album to add to your favourites!</p>
       <div className="AllTheArtists">
         {uniqueAlbums
           .filter((album) => album.name)
