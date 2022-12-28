@@ -6,8 +6,8 @@ import FavouritesPage from "./components/FavouritesPage";
 import { AlbumDataTypes } from "./utils/AlbumDataType";
 
 //got both of these keys by signing up to spotify dev tools
-const Client_Id = "514b68cdc0b64083a2c23276782ba390";
-const Client_Secret = "83866f02e62f4cee8d8951e7fe0c66a5";
+const Client_Id = import.meta.env.VITE_REACT_APP_CLIENT_ID;
+const Client_Secret = import.meta.env.VITE_REACT_APP_CLIENT_SECRET;
 
 function App(): JSX.Element {
   const [page, setPage] = useState<string>("home");
